@@ -1,0 +1,30 @@
+# Python .gitignore
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+.venv/
+*.egg-info/
+*.egg
+.dist/
+build/
+*.sqlite3
+*.db
+*.log
+.DS_Store
+.idea/
+.vscode/
+# Model files
+models/*.pkl
+# Data files
+data/raw/
+data/processed/
+# Results
+results/
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+# Temporary files
+*.tmp
+*.bak
