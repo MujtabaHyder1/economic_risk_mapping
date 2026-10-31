@@ -19,10 +19,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-      - name: Run sanity check (import modules)
+      - name: Run unit test suite
         run: |
-          python - <<'PY'
-          import src.model_training as mt
-          import src.model_evaluation as me
-          print('✅ Imports succeeded')
-          PY
+          python -m unittest discover -s tests -p "test_*.py" -v
