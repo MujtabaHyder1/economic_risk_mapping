@@ -14,21 +14,33 @@ pip install -r requirements.txt
 ```bash
 python main.py
 ```
+**Output**: All results generated in ~55 seconds
 
-**Output**: All results generated in ~60 seconds
+### 3. Launch Interactive Web Dashboard
+```bash
+streamlit run app.py
+```
+Opens interactive climate scenario laboratory at `http://localhost:8501`.
+
+### 4. Run Test Suite
+```bash
+python -m unittest discover -s tests -p "test_*.py" -v
+```
 
 ---
 
 ## What Was Built
 
-### ✅ Complete ML Pipeline (2,600+ lines of code)
+### ✅ Complete ML Pipeline & Platform
 
-**5 Core Modules:**
-1. **data_generation.py** - Generates realistic synthetic datasets
-2. **data_preprocessing.py** - Merges data & engineers 16 climate/geospatial features
-3. **model_training.py** - Trains XGBoost with hyperparameter tuning
-4. **model_evaluation.py** - Generates visualizations & Financial Vulnerability Index
-5. **config.py** - Centralized configuration for all parameters
+**Core Modules & Apps:**
+1. **app.py** - Interactive Streamlit web dashboard for live scenario simulation
+2. **data_generation.py** - Generates realistic synthetic datasets (14k+ rows)
+3. **data_preprocessing.py** - Merges data & engineers 16 climate/geospatial features
+4. **model_training.py** - Trains XGBoost with hyperparameter tuning (1,080 fits)
+5. **model_evaluation.py** - Generates visualizations & Financial Vulnerability Index
+6. **notebooks/eda_and_analysis.ipynb** - Exploratory data analysis & workflow notebook
+7. **tests/** - Comprehensive unit and integration test suite (11 tests)
 
 ---
 

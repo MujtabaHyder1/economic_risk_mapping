@@ -67,7 +67,24 @@ This will execute all stages:
 5. Calculate Financial Vulnerability Index
 6. Generate visualizations
 
-**Expected Runtime**: 3-5 minutes (depending on system specs)
+**Expected Runtime**: ~1 minute
+
+### Running the Interactive Streamlit Dashboard
+
+```bash
+streamlit run app.py
+```
+Launches the interactive dashboard in your browser (`http://localhost:8501`), allowing live manipulation of temperature, rainfall, frost days, and vegetation stress parameters.
+
+### Running Automated Tests
+
+```bash
+# Using standard Python unittest
+python -m unittest discover -s tests -p "test_*.py" -v
+
+# Or using pytest (if installed)
+pytest tests/
+```
 
 ### Running Individual Stages
 
@@ -127,7 +144,10 @@ Edit `src/config.py` to customize the pipeline before running.
 ```
 economic_risk_mapping/
 ├── README.md                          # Project overview
-├── requirements.txt                   # Python dependencies
+├── pyproject.toml                     # Modern build and package configuration
+├── requirements.txt                   # Core runtime dependencies
+├── requirements-dev.txt               # Development dependencies
+├── app.py                             # Interactive Streamlit dashboard
 ├── main.py                            # Main pipeline orchestration
 │
 ├── src/
@@ -163,7 +183,13 @@ economic_risk_mapping/
 │   └── summary_report.txt             # Executive summary
 │
 ├── notebooks/
-│   └── eda_and_analysis.ipynb         # Exploratory analysis (future)
+│   └── eda_and_analysis.ipynb         # Interactive EDA and scenario analysis
+│
+├── tests/                             # Unit & integration test suite (11 tests)
+│   ├── __init__.py
+│   ├── test_data_generation.py
+│   ├── test_data_preprocessing.py
+│   └── test_model_pipeline.py
 │
 └── logs/
     └── pipeline.log                   # Execution logs

@@ -53,20 +53,25 @@ pip install -r requirements.txt
 # Run complete pipeline
 python main.py
 
-# View results in results/ directory
+# Launch interactive Streamlit dashboard
+streamlit run app.py
+
+# Run automated tests
+python -m unittest discover -s tests -p "test_*.py" -v
 ```
 
-Expected Time: ~60 seconds | Output: 13 files generated
+Expected Pipeline Runtime: ~55 seconds | Output: 13 files generated
 
 ---
 
 ## What's Included
 
-### Code (2,600+ lines)
-- 8 Python modules (config, data_gen, preprocessing, training, evaluation, utils, init, main)
-- 5 main classes with full documentation
-- 40+ well-documented functions
-- Production-ready error handling & logging
+### Code & Apps
+- **app.py**: Interactive Streamlit web application for real-time scenario simulation
+- **8 Python modules** in `src/` (config, data_gen, preprocessing, training, evaluation, utils, init, main)
+- **tests/**: 11 unit & integration tests covering data generation, preprocessing, and model pipelines
+- **notebooks/eda_and_analysis.ipynb**: Comprehensive exploratory data analysis notebook
+- Production-ready error handling, temporal train-test splitting, and logging
 
 ### Data (Generated)
 - 14,247 daily climate records (13 years x 3 districts)

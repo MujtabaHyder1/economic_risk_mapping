@@ -22,22 +22,31 @@ Spatial machine learning model to predict per-hectare financial loss of cash cro
 ```
 economic_risk_mapping/
 ├── README.md
-├── requirements.txt
-├── config.yaml
+├── pyproject.toml                  # Build and package configuration
+├── requirements.txt                # Core runtime dependencies
+├── requirements-dev.txt            # Dev dependencies (pytest, jupyter, ruff)
+├── config.yaml                     # Model training parameters
+├── app.py                          # Interactive Streamlit dashboard
+├── main.py                         # End-to-end pipeline execution
 ├── data/
 │   ├── raw/
 │   ├── processed/
 │   └── synthetic/
 ├── src/
 │   ├── __init__.py
+│   ├── config.py                   # Centralized configuration dictionary
 │   ├── data_generation.py          # Synthetic data creation
 │   ├── data_preprocessing.py       # Merging, feature engineering
 │   ├── model_training.py           # XGBoost pipeline with hyperparameter tuning
 │   ├── model_evaluation.py         # Metrics, visualizations, vulnerability index
-│   └── utils.py                    # Helper functions
+│   └── utils.py                    # Helper functions & logging
 ├── notebooks/
-│   └── eda_and_analysis.ipynb      # Exploratory analysis
-└── main.py                         # End-to-end pipeline execution
+│   └── eda_and_analysis.ipynb      # Interactive exploratory data analysis
+└── tests/                          # Automated unit and integration test suite
+    ├── __init__.py
+    ├── test_data_generation.py
+    ├── test_data_preprocessing.py
+    └── test_model_pipeline.py
 ```
 
 ---
@@ -45,7 +54,7 @@ economic_risk_mapping/
 ## Installation & Setup
 
 ### Prerequisites
-- Python 3.9+
+- Python 3.9+ (fully compatible through Python 3.14)
 - pip or conda
 
 ### Install Dependencies
@@ -53,11 +62,16 @@ economic_risk_mapping/
 pip install -r requirements.txt
 ```
 
+To install development & test dependencies:
+```bash
+pip install -r requirements-dev.txt
+```
+
 ---
 
 ## Quick Start
 
-### Run the Complete Pipeline
+### 1. Run the Complete Pipeline
 ```bash
 python main.py
 ```
@@ -65,9 +79,27 @@ python main.py
 This will:
 1. Generate synthetic datasets (climate, geospatial, economic)
 2. Preprocess and engineer features
-3. Train and tune an XGBoost model
+3. Train and tune an XGBoost model via 5-fold cross validation
 4. Evaluate performance and generate visualizations
-5. Calculate Financial Vulnerability Index for climate scenarios
+5. Calculate Financial Vulnerability Index for climate scenarios (+1.5°C and +2.0°C)
+
+### 2. Launch Interactive Streamlit Dashboard
+```bash
+streamlit run app.py
+```
+Opens an interactive scenario laboratory at `http://localhost:8501` where users can:
+- Adjust micro-climate forcing sliders (Temperature, Rainfall, Frost Days, Pre-harvest Heatwaves, NDVI stress)
+- Re-run model inference on-the-fly and observe immediate changes to revenue loss
+- Inspect district-level vulnerability heatmaps and download customized scenario reports as CSV
+
+### 3. Run Automated Tests
+```bash
+python -m unittest discover -s tests -p "test_*.py" -v
+```
+Or if `pytest` is installed:
+```bash
+pytest tests/ -v
+```
 
 ---
 
