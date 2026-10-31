@@ -135,18 +135,31 @@ STAGE 4: Evaluation & Financial Vulnerability Analysis
 economic_risk_mapping/
 ├── README.md                          # Project overview
 ├── SETUP.md                           # Installation & setup guide
-├── IMPLEMENTATION_SUMMARY.md          # This document
-├── requirements.txt                   # Python dependencies
+├── IMPLEMENTATION_SUMMARY.md          # Technical documentation & architecture
+├── QUICKSTART.md                      # Quick reference & execution guide
+├── pyproject.toml                     # Modern package build configuration
+├── requirements.txt                   # Core runtime dependencies
+├── requirements-dev.txt               # Testing & dev dependencies (pytest, jupyter)
+├── app.py                             # Interactive Streamlit dashboard
 ├── main.py                            # End-to-end orchestration
 │
 ├── src/
 │   ├── __init__.py
 │   ├── config.py                      # Configuration parameters
-│   ├── data_generation.py             # Synthetic data creation (1,089 lines)
-│   ├── data_preprocessing.py          # Feature engineering (376 lines)
-│   ├── model_training.py              # XGBoost training (413 lines)
-│   ├── model_evaluation.py            # Evaluation & visualizations (564 lines)
-│   └── utils.py                       # Utility functions (185 lines)
+│   ├── data_generation.py             # Synthetic data creation
+│   ├── data_preprocessing.py          # Feature engineering
+│   ├── model_training.py              # XGBoost training & temporal validation
+│   ├── model_evaluation.py            # Evaluation & visualizations
+│   └── utils.py                       # Utility functions & logging
+│
+├── tests/                             # Automated test suite (11 unit tests)
+│   ├── __init__.py
+│   ├── test_data_generation.py
+│   ├── test_data_preprocessing.py
+│   └── test_model_pipeline.py
+│
+├── notebooks/
+│   └── eda_and_analysis.ipynb         # Interactive exploratory data analysis
 │
 ├── data/
 │   ├── synthetic/                     # Generated synthetic datasets

@@ -92,6 +92,8 @@ Opens an interactive scenario laboratory at `http://localhost:8501` where users 
 - Re-run model inference on-the-fly and observe immediate changes to revenue loss
 - Inspect district-level vulnerability heatmaps and download customized scenario reports as CSV
 
+![Interactive Streamlit Dashboard Preview](docs/images/dashboard_preview.png)
+
 ### 3. Run Automated Tests
 ```bash
 python -m unittest discover -s tests -p "test_*.py" -v

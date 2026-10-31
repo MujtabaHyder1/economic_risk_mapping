@@ -57,19 +57,21 @@ Everything runs automatically in ~60 seconds. No configuration needed for demo.
 
 **Total: 29 files across 8 categories**
 
-### Documentation (7 files)
+### Documentation & Notebooks (8 files)
 ```
 INDEX.md                        - Project navigation & overview
-README.md                       - Project introduction
+README.md                       - Project introduction & quickstart
 SETUP.md                        - Installation guide
 QUICKSTART.md                   - Quick reference
 IMPLEMENTATION_SUMMARY.md       - Complete technical docs
 PROJECT_DELIVERY.md             - Package contents
 DELIVERY_CHECKLIST.txt          - Quality assurance sign-off
+notebooks/eda_and_analysis.ipynb - Interactive exploratory data analysis
 ```
 
-### Source Code (8 modules)
+### Source Code & Web Applications (9 modules)
 ```
+app.py                          - Interactive Streamlit web application & scenario lab
 main.py                         - End-to-end orchestration
 src/config.py                   - All tunable parameters
 src/data_generation.py          - Synthetic data creation
@@ -78,6 +80,14 @@ src/model_training.py           - XGBoost optimization
 src/model_evaluation.py         - Metrics & visualizations
 src/utils.py                    - Helper functions
 src/__init__.py                 - Package initialization
+```
+
+### Automated Testing Suite (11 tests)
+```
+tests/test_data_generation.py    - Synthetic data integrity tests
+tests/test_data_preprocessing.py - Data cleaning & feature tests
+tests/test_model_pipeline.py     - XGBoost training & scenario tests
+tests/__init__.py                - Test suite initialization
 ```
 
 ### Data (4 CSV files)
@@ -105,9 +115,12 @@ results/vulnerability_index_1_5C.csv    - 1.5°C scenario results
 results/vulnerability_index_2_0C.csv    - 2.0°C scenario results
 ```
 
-### Configuration (1 file)
+### Configuration & Packaging (4 files)
 ```
-requirements.txt                        - Python dependencies
+requirements.txt                        - Core runtime dependencies
+requirements-dev.txt                    - Developer dependencies (pytest, jupyter)
+pyproject.toml                          - Standard build & package metadata
+config.yaml                             - Hyperparameter configuration
 ```
 
 ---
